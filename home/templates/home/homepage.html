@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Bootstrap CSS styling -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Memories Home</title>
+   </head>
+   <style>
+     .center{
+       text-align: center;
+     }
+     .btn-width{
+       width: 300px;
+       height: 100px;
+     }
+     .divider{
+       padding: 5px;
+       opacity: 1;
+       border: none;
+     }
+
+     @media only screen and (max-width: 600px) {
+  .m-5 {
+    margin: 1rem !important;
+  }
+}
+   </style>
+   <body>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary m-2">
+         <a class="navbar-brand m-1">Home</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarText">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+               <a class="nav-link" href="">Memories</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="">Document Wallet</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="">Calendar</a>
+             </li>
+           </ul>
+         </div>
+         <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">Logout</li>
+            </ul>
+         </div>
+       </nav>
+       <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+          <div class="col-sm center m-auto">
+            <img src="http://cdn.onlinewebfonts.com/svg/img_460077.png" width="80px">
+          </div>
+          <div class="col-sm center">
+            <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" width="200px">
+          </div>
+          <div class="col-sm center m-auto">
+            <img src="https://i.pinimg.com/564x/b5/3e/15/b53e1530362092e73732056aafd266e4.jpg" width="80px">
+          </div>
+        </div>
+      </div>
+    <hr class="divider bg-primary">
+
+       <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm center">
+            <a href="{% url 'memories' %}">
+            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Memories</button>
+          </a>
+          </div>
+          <div class="col-sm center">
+            <a href="{% url 'memories' %}">
+            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Document Wallet</button>
+            </a>
+          </div>
+          <div class="col-sm center">
+            <a href="{% url 'memories' %}">
+            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Journal</button>
+            </a>
+          </div>
+          
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-sm center">
+            <a href="{% url 'memories' %}">
+            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Useful Links</button>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+   </body>
+</html>
