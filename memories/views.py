@@ -39,4 +39,10 @@ def newImage(request):
     context = {'categories':categories}
     return render(request, 'memories/newImage.html', context)
 
+def deleteImage(request, pk):
+    image = Photo.objects.get(id=pk)
+
+    image.delete()
+    return redirect('memories')
+
 

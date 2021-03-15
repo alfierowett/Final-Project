@@ -2,5 +2,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.journal, name='journal-home'),
+    path('', views.journal, name='journal'),
 ]

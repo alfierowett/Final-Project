@@ -17,6 +17,8 @@
         <div style="height: 90vh;">
           <img src="{{photo.image.url}}" style="width: 50%;">
           <p>{{photo.descriptionImage}}</p>
+          <a href="{% url 'deleteImage' photo.id %}">
+          <button class="btn btn-dark btn-lg" >Delete Image</button></a>
         </div>
       </div>
 
