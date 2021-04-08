@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Bootstrap CSS styling -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>New Document</title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-md-4">
+               <a href="{% url 'memories' %}" class="btn btn-dark my-3">Go Back</a>
+               <div class="card">
+                  <form method="POST" action="" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     <div class="form-group m-3">
+                        <label>Document Title</label>
+                        <input required type="text" name="title" class="form-control" placeholder="Enter a title...">
+                     </div>
+                     <div class="form-group m-3">
+                        <label>Select a Category</label>
+                        <select name="category" class="form-control" >
+                           <option value="none">Please select a category</option>
+                           {% for category in categories %}
+                           <option value="{{category.id}}">{{category.name}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                     <div class="form-group m-3">
+                        <label>Create a new category</label>
+                        <input name="categoryNew" type="text" placeholder="Create a new category"
+                           class="form-control">
+                     </div>
+                     <div class="form-group m-3">
+                        <label>Choose Files</label>
+                        <input required type="file" name="files" multiple class="form-control-file">
+                     </div>
+                     <button type="submit" class="btn btn-dark m-3">Upload Files</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

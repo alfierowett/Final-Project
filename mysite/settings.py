@@ -124,11 +124,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = 'images/'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 

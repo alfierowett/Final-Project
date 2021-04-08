@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
-    <meta charset="UTF-8">
-    <title>title</title>
+    <meta charset='utf-8' />
+   
   </head>
   <body>
-      <p>Calendar</p>
-  
+    {% for task in tasks %}
+    <div>
+      <p>
+        {{task}}
+      </p>
+
+    </div>
+ {% endfor %}
   </body>
 </html>

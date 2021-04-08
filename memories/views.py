@@ -3,9 +3,15 @@ from django.shortcuts import render, redirect
 from .models import Category, Photo
 
 def memories(request):
+    category = request.GET.get('category')
+    if category == None:
+        photos = Photo.objects.all()
+    else:
+        photos = Photo.objects.filter(category__name=category)
+
     categories = Category.objects.all()
-    photos = Photo.objects.all()
     context = {'categories':categories, 'photos':photos}
+    
     return render(request, 'memories/memories.html', context)
 
 def viewImage(request, pk):
@@ -18,21 +24,22 @@ def newImage(request):
 
     if request.method == 'POST':
         data = request.POST
-        image = request.FILES.get('image')
+        images = request.FILES.getlist('images')
 
         if data['category'] != 'none':
             category = Category.objects.get(id=data['category'])
         elif data['categoryNew'] != '':
-            category, created = Category.objects.get_or_create(name=['categoryNew'])
+            category, created = Category.objects.get_or_create(
+                name=data['categoryNew'])
         else:
             category = None
 
-
-        photo = Photo.objects.create(
-           category=category,
-           descriptionImage=data['descriptionImage'],
-           image=image
-       )
+        for image in images:
+            photo = Photo.objects.create(
+            category=category,
+            descriptionImage=data['descriptionImage'],
+            image=image
+        )
 
         return redirect('memories')
 

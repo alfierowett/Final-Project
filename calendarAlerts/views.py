@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 
+def calendar(request):
+    tasks = toDo.objects.all()
 
-def calendarAlerts(request):
-    return render(request, 'calendarAlerts/calendar.html')
+    context = {'tasks': tasks}
+    return render(request, 'calendarAlerts/calendar.html', context)
 
 
-def Alerts(request):
-    return render(request, 'calendarAlerts/alerts.html')
