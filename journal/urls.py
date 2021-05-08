@@ -6,4 +6,6 @@ urlpatterns = [
     path('addEntry/', views.newEntry, name='newEntry'),
     path('viewEntry/<str:pk>/', views.viewEntry, name='viewEntry'),
     path('deleteEntry/<str:pk>/', views.deleteEntry, name='deleteEntry'),
+    path('AscEntries/', views.AscEntries, name='AscEntries'),
+    path('DescEntries/', views.DescEntries, name='DescEntries'),
 ]

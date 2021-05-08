@@ -2,13 +2,15 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Category, Document
 from django.views.decorators.clickjacking import xframe_options_sameorigin
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def documentWallet(request):
     category = request.GET.get('category')
     if category == None:
-        files = Document.objects.all()
+        files = Document.objects.filter(owner=request.user)
     else:
-        files = Document.objects.filter(category__name=category)
+        files = Document.objects.filter(category__name=category).filter(owner=request.user)
 
     
     categories = Category.objects.all()
@@ -16,11 +18,38 @@ def documentWallet(request):
     context = {'categories': categories, 'files': files}
     return render(request, 'documentWallet/documentWallet.html', context)
 
+@login_required
 def viewDocument(request, pk):
     file = Document.objects.get(id=pk)
     return render(request, 'documentWallet/viewDocument.html', {'file': file})
 
+@login_required
+def AscWallet(request):
+    category = request.GET.get('category')
+    if category == None:
+        files = Document.objects.order_by('fileDate').filter(owner=request.user)
+    else:
+        files = Document.objects.filter(category__name=category).order_by('fileDate').filter(owner=request.user)
 
+    categories = Category.objects.all()
+    context = {'categories':categories, 'files':files}
+    
+    return render(request, 'documentWallet/documentWallet.html', context)
+
+@login_required
+def DescWallet(request):
+    category = request.GET.get('category')
+    if category == None:
+        files = Document.objects.order_by('-fileDate').filter(owner=request.user)
+    else:
+        files = Document.objects.filter(category__name=category).order_by('-fileDate').filter(owner=request.user)
+
+    categories = Category.objects.all()
+    context = {'categories':categories, 'files':files}
+    
+    return render(request, 'documentWallet/documentWallet.html', context)
+
+@login_required
 def newDocument(request):
     categories = Category.objects.all()
 
@@ -40,7 +69,8 @@ def newDocument(request):
             file = Document.objects.create(
             category=category,
             title=data['title'],
-            file=file
+            file=file,
+            owner=request.user,
         )
 
         return redirect('documentWallet')
@@ -48,6 +78,7 @@ def newDocument(request):
     context = {'categories':categories}
     return render(request, 'documentWallet/newDocument.html', context)
 
+@login_required
 def deleteDocument(request, pk):
     file = Document.objects.get(id=pk)
 

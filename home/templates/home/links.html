@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Bootstrap CSS styling -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Useful Links</title>
+   </head>
+   <body class="bg-primary-gradient">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+      <a class="navbar-brand m-1">Useful Links</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'memories' %}">Memories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'journal' %}">Journal</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarText">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
+         </ul>
+      </div>
+    </nav>
+  <div class="container">
+    <ul class="list-group mt-5">
+      <li class="list-group-item">Covid-19 Pandemic Guidance: <a href="https://gov.wales/childrens-social-services-during-covid-19-pandemic-guidance">https://gov.wales/childrens-social-services-during-covid-19-pandemic-guidance</a></li>
+      <li class="list-group-item">Cardiff Council Children's Services: <a href="https://www.cardiff.gov.uk/ENG/resident/Social-Services-and-Wellbeing/Children/Childrens-services/Pages/default.aspx">https://www.cardiff.gov.uk/ENG/resident/Social-Services-and-Wellbeing/Children/Childrens-services/Pages/default.aspx</a></li>
+      <li class="list-group-item">National Youth Advocacy Service: <a href="https://www.nyas.net/">https://www.nyas.net/</a></li>
+    </ul>
+  </div>
+
+   </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

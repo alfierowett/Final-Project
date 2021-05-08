@@ -27,7 +27,7 @@
   }
 }
    </style>
-   <body class="bg-primary-gradient">
+   <body style="background-image: linear-gradient(180deg, #0275d8, black);">
       
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
          <a class="navbar-brand m-1">Home</a>
@@ -36,24 +36,21 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-               <li class="nav-item">Logout</li>
+              <a href="{% url 'logout' %}" style="text-decoration: none;" >
+               <li class="nav-item" style="color: white;">Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
+              </a>
             </ul>
          </div>
        </nav>
        <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
-          <div class="col-sm center m-auto">
-            <img src="http://cdn.onlinewebfonts.com/svg/img_460077.png" width="80px">
-          </div>
           <div class="col-sm center">
-            <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" width="200px">
+            <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" width="200px" style="border-radius: 100px;">
           </div>
-          <div class="col-sm center m-auto">
-            <img src="https://i.pinimg.com/564x/b5/3e/15/b53e1530362092e73732056aafd266e4.jpg" width="80px">
-          </div>
+          
         </div>
       </div>
-    <hr class="divider bg-primary">
+    <hr class="divider" style="color: #025ead ;">
 
        <div class="container">
         <div class="row justify-content-center">
@@ -72,16 +69,22 @@
             <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Journal</button>
             </a>
           </div>
-          
-        </div>
-        <div class="row justify-content-center">
           <div class="col-sm center">
-            <a href="">
+            <a href="{% url 'calendar' %}">
+            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Calendar</button>
+            </a>
+          </div>
+          <div class="col-sm center">
+            <a href="{% url 'usefulLinks' %}">
             <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Useful Links</button>
             </a>
           </div>
           
         </div>
+    
       </div>
    </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

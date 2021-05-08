@@ -6,5 +6,7 @@ urlpatterns = [
     path('add/', views.newDocument, name='newDocument'),
     path('document/<str:pk>/', views.viewDocument, name='document'),
     path('deleteDocument/<str:pk>/', views.deleteDocument, name='deleteDocument'),
+    path('AscWallet/', views.AscWallet, name='AscWallet'),
+    path('DescWallet/', views.DescWallet, name='DescWallet'),
 ]
 
