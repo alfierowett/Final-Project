@@ -8,88 +8,80 @@
       <title>Memories Home</title>
    </head>
    <style>
-   .image-thumbnail {
-      height: 200px;
-      object-fit: cover;
-  }
-</style>
+      .navText{
+      text-decoration: none;
+      color: white !important;
+      }
+   </style>
    <body>
       <!--Display navigation bar with hamburger menu for mobile-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
          <a class="navbar-brand m-1">Calendar</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
+         <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarText">
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item active">
-               <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'memories' %}">Memories</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'journal' %}">Journal</a>
-             </li>
-           </ul>
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link navText" href="http://127.0.0.1:8000/homepage">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'documentWallet' %}">Document Wallet</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'memories' %}">Memories</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'journal' %}">Journal</a>
+               </li>
+            </ul>
          </div>
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                <a href="{% url 'logout' %}" style="text-decoration: none;" >
-               <li class="nav-item" style="color: white;" >Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
-            </a>
+                  <li class="nav-item" style="color: white;" >Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
+               </a>
             </ul>
          </div>
-       </nav>
-       <!--form container to create new events and body of html that displays existing events-->
+      </nav>
+      <!--form container to create new events and body of html that displays existing events-->
       <div class="container" style="max-width: 800px !important;">
-        <form method="POST" action="addEvent/" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="form-group m-3">
-             <label>Event Name</label>
-             <input required type="text" name="event" class="form-control" placeholder="Name of event...">
-          </div>
-          
-          <div class="form-group m-3">
-             <label>Description:</label>
-             <textarea style="width: 100%;" required type="text" class="form-control" name="descriptionEvent" placeholder="Write here...."></textarea>
-          </div>
-
-          <div class="form-group m-3">
-            <label>Date:</label>
-            <input style="width: 100%;" required type="date" class="form-control" name="eventDeadline">
-         </div>
-          <button type="submit" class="btn btn-primary m-3">Add Entry <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></button>
-       </form>
-       <hr>
+         <form method="POST" action="addEvent/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group m-3">
+               <label>Event Name</label>
+               <input required type="text" name="event" class="form-control" placeholder="Name of event...">
+            </div>
+            <div class="form-group m-3">
+               <label>Description:</label>
+               <textarea style="width: 100%;" required type="text" class="form-control" name="descriptionEvent" placeholder="Write here...."></textarea>
+            </div>
+            <div class="form-group m-3">
+               <label>Date:</label>
+               <input style="width: 100%;" required type="date" class="form-control" name="eventDeadline">
+            </div>
+            <button type="submit" class="btn btn-dark m-3">Add Entry <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></button>
+         </form>
+         <hr>
          <div class="row">
             <h4>Sort By Date</h4>
             <a href="{% url 'AscCal' %}" class="btn btn-dark btn-sml m-1">Dates Ascending <img src="https://img.icons8.com/small/16/ffffff/collapse-arrow.png"/></a>
             <a href="{% url 'DescCal' %}" class="btn btn-dark btn-sml m-1">Dates Descending <img src="https://img.icons8.com/small/16/ffffff/expand-arrow.png"/></a>
-            
             <div class="col-md-10">
                <div class="row">
-
-
                   {% for event in events %}
                   <div class="col-md-9">
                      <div class="my-2">
                         <h4>{{event.event}}&nbsp;-&nbsp;{{event.eventDeadline}} <a href="{% url 'deleteEvent' event.id %}">
-                           <img src="https://img.icons8.com/ios-glyphs/25/000000/delete-forever.png"/></a></h4>
+                           <img src="https://img.icons8.com/ios-glyphs/25/000000/delete-forever.png"/></a>
+                        </h4>
                         <p>{{event.descriptionEvent}}</p>
-                        
                      </div>
                   </div>
                   <hr>
                   {% empty %}
                   <h3>Your Calendar is empty</h3>
                   {% endfor %}
-                  
-               
-                  
                </div>
             </div>
          </div>

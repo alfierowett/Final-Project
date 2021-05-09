@@ -8,9 +8,9 @@
       <title>Journal</title>
    </head>
    <style>
-      .image-thumbnail {
-      height: 200px;
-      object-fit: cover;
+      .navText{
+      text-decoration: none;
+      color: white !important;
       }
    </style>
    <body>
@@ -23,16 +23,16 @@
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item active">
-                  <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
+                  <a class="nav-link navText" href="http://127.0.0.1:8000/homepage">Home</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'memories' %}">Memories</a>
+                  <a class="nav-link navText" href="{% url 'memories' %}">Memories</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
+                  <a class="nav-link navText" href="{% url 'documentWallet' %}">Document Wallet</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
+                  <a class="nav-link navText" href="{% url 'calendar' %}">Calendar</a>
                </li>
             </ul>
          </div>
@@ -40,7 +40,7 @@
             <ul class="navbar-nav mr-auto">
                <a href="{% url 'logout' %}" style="text-decoration: none;" >
                   <li class="nav-item" style="color: white;">Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
-                 </a>
+               </a>
             </ul>
          </div>
       </nav>

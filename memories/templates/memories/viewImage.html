@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>View Image</title>
   </head>
+  <style>
+    .navText{
+   text-decoration: none;
+   color: white !important;
+}
+@media only screen and (max-width: 600px) {
+  .w100pc{
+    width: 100% !important;
+  }
+}
+  </style>
   <body>
     <!--display navigation bar with hamburger menu for mobile-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
@@ -17,16 +28,16 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
+            <a class="nav-link navText" href="http://127.0.0.1:8000/homepage">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
+            <a class="nav-link navText" href="{% url 'documentWallet' %}">Document Wallet</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
+            <a class="nav-link navText" href="{% url 'calendar' %}">Calendar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'journal' %}">Journal</a>
+            <a class="nav-link navText" href="{% url 'journal' %}">Journal</a>
           </li>
         </ul>
       </div>
@@ -49,7 +60,7 @@
           <img src="https://img.icons8.com/ios-glyphs/30/000000/delete-forever.png"/></a></div>
           <div class="row">
         <div style="height: 90vh;">
-          <img src="{{photo.image.url}}" style="width: 50%;">
+          <img src="{{photo.image.url}}" style="width: 50%;" class="w100pc">
           <p>{{photo.descriptionImage}}</p>
           <p>{{photo.imageDate}}</p>
         </div>

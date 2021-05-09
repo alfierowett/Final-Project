@@ -8,34 +8,42 @@
       <title>Memories Home</title>
    </head>
    <style>
-   .image-thumbnail {
+      .image-thumbnail {
       height: 200px;
       width: 300px;
       object-fit: cover;
-  }
-</style>
+      }
+      .categoryStyle{
+      text-decoration: none;
+      color: black;
+      }
+      .navText{
+      text-decoration: none;
+      color: white !important;
+      }
+   </style>
    <body>
       <!--display navigation bar with hamburger menu for mobile-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
          <a class="navbar-brand m-1">Memories</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
+         <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarText">
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item active">
-               <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="{% url 'journal' %}">Journal</a>
-             </li>
-           </ul>
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link navText" href="http://127.0.0.1:8000/homepage">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'documentWallet' %}">Document Wallet</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'calendar' %}">Calendar</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link navText" href="{% url 'journal' %}">Journal</a>
+               </li>
+            </ul>
          </div>
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
@@ -44,13 +52,12 @@
                </a>
             </ul>
          </div>
-       </nav>
+      </nav>
       <div class="container">
          <!--Filter photos by age-->
          <h4>Sort By...</h4>
          <a href="{% url 'AscMemories' %}" class="btn btn-dark btn-sml m-1">Oldest-Newest <img src="https://img.icons8.com/small/16/ffffff/collapse-arrow.png"/></a>
          <a href="{% url 'DescMemories' %}" class="btn btn-dark btn-sml m-1">Newest-Oldest <img src="https://img.icons8.com/small/16/ffffff/expand-arrow.png"/></a>
-
          <div class="row">
             <!--Select category of photo you wish you view-->
             <div class="col-md-3">
@@ -60,25 +67,22 @@
                   </div>
                   <ul class="list-group list-group-flush">
                      <li class="list-group-item">
-                         <a href="{% url 'memories' %}">All</a>
+                        <a href="{% url 'memories' %}" class="categoryStyle">All</a>
                      </li>
                      {% for category in categories %}
                      <li class=" list-group-item">
-                        <a href="{% url 'memories' %}?category={{category.name}}">
-                           {{category.name}}
-                       </a>
+                        <a href="{% url 'memories' %}?category={{category.name}}" class="categoryStyle">
+                        {{category.name}}
+                        </a>
                      </li>
                      {% endfor %}
-                     
-                        <a href="{% url 'new' %}" class="btn btn-dark btn-sml m-1">Upload new photos <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></a>
-                    
+                     <a href="{% url 'new' %}" class="btn btn-dark btn-sml m-1">Upload new photos <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></a>
                   </ul>
                </div>
             </div>
             <div class="col-md-9">
                <div class="row">
-<!--Load and render all photos in photos folder of DB for user-->
-
+                  <!--Load and render all photos in photos folder of DB for user-->
                   {% for photo in photos %}
                   <div class="col-md-4">
                      <div class="my-2" style="text-align: center;">
@@ -90,9 +94,6 @@
                   {% empty %}
                   <h3>No images saved yet!</h3>
                   {% endfor %}
-                  
-               
-                  
                </div>
             </div>
          </div>

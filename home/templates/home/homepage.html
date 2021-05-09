@@ -8,85 +8,91 @@
       <title>Memories Home</title>
    </head>
    <style>
-     .center{
-       text-align: center;
-     }
-     .btn-width{
-       width: 300px;
-       height: 100px;
-     }
-     .divider{
-       padding: 5px;
-       opacity: 1;
-       border: none;
-     }
-
-     @media only screen and (max-width: 600px) {
-  .m-5 {
-    margin: 1rem !important;
-  }
-}
+      .center{
+      text-align: center;
+      }
+      .btn-width{
+      width: 300px;
+      height: 100px;
+      }
+      .divider{
+      padding: 5px;
+      opacity: 1;
+      border: none;
+      }
+      .btn-home{
+      background-color: white !important;
+      color: #ff5b00;
+      font-weight: 700 !important;
+      font-size: 27px !important;
+      font-family: sans-serif !important;
+      border-radius: 15px;
+      }
+      .btn:hover {
+      color: white;
+      background-color: #0275d8 !important;
+      }
+      @media only screen and (max-width: 600px) {
+      .m-5 {
+      margin: 1rem !important;
+      }
+      }
    </style>
-   <body style="background-image: linear-gradient(180deg, #0275d8, black);">
+   <body style="background-color: #051938;">
       <!--display navigation bar with hamburger menu for mobile-->
-
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
          <a class="navbar-brand m-1">Home</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
+         <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-              <a href="{% url 'logout' %}" style="text-decoration: none;" >
-               <li class="nav-item" style="color: white;">Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
-              </a>
+               <a href="{% url 'logout' %}" style="text-decoration: none;" >
+                  <li class="nav-item" style="color: white;">Logout <img src="https://img.icons8.com/ios-glyphs/20/ffffff/exit.png"/></li>
+               </a>
             </ul>
          </div>
-       </nav>
-       <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-          <div class="col-sm center">
-            <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" width="200px" style="border-radius: 100px;">
-          </div>
-          
-        </div>
+      </nav>
+      <div class="container mt-5 mb-5">
+         <div class="row justify-content-center">
+            <div class="col-sm center">
+               <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" width="200px" style="border-radius: 100px;">
+            </div>
+         </div>
       </div>
       <!--Large buttons displayed for quick access to the project features-->
-
-       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm center">
-            <a href="{% url 'memories' %}">
-            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Memories</button>
-          </a>
-          </div>
-          <div class="col-sm center">
-            <a href="{% url 'documentWallet' %}">
-            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Document Wallet</button>
-            </a>
-          </div>
-          <div class="col-sm center">
-            <a href="{% url 'journal' %}">
-            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Journal</button>
-            </a>
-          </div>
-          <div class="col-sm center">
-            <a href="{% url 'calendar' %}">
-            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Calendar</button>
-            </a>
-          </div>
-          <div class="col-sm center">
-            <a href="{% url 'usefulLinks' %}">
-            <button type="button" class="btn btn-primary btn-lg m-5 btn-width">Useful Links</button>
-            </a>
-          </div>
-          
-        </div>
-    
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-sm center">
+               <a href="{% url 'memories' %}">
+               <button type="button" class="btn btn-home btn-lg m-5 btn-width">Memories</button>
+               </a>
+            </div>
+            <div class="col-sm center">
+               <a href="{% url 'documentWallet' %}">
+               <button type="button" class="btn btn-home btn-lg m-5 btn-width">Document Wallet</button>
+               </a>
+            </div>
+            <div class="col-sm center">
+               <a href="{% url 'journal' %}">
+               <button type="button" class="btn btn-home btn-lg m-5 btn-width">Journal</button>
+               </a>
+            </div>
+            <div class="col-sm center">
+               <a href="{% url 'calendar' %}">
+               <button type="button" class="btn btn-home btn-lg m-5 btn-width">Calendar</button>
+               </a>
+            </div>
+            <div class="col-sm center">
+               <a href="{% url 'usefulLinks' %}">
+               <button type="button" class="btn btn-home btn-lg m-5 btn-width">Useful Links</button>
+               </a>
+            </div>
+         </div>
       </div>
    </body>
    <!--Bootstrap JS library for burger menu-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

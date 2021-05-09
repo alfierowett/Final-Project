@@ -8,10 +8,10 @@
       <title>Memories Home</title>
    </head>
    <style>
-      .image-thumbnail {
-      height: 200px;
-      object-fit: cover;
-      }
+      .navText{
+   text-decoration: none;
+   color: white !important;
+}
    </style>
    <body>
       <!--display navigation bar with hamburger menu for mobile-->
@@ -23,16 +23,16 @@
          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item active">
-                  <a class="nav-link" href="http://127.0.0.1:8000/homepage">Home</a>
+                  <a class="nav-link navText" href="http://127.0.0.1:8000/homepage">Home</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'memories' %}">Memories</a>
+                  <a class="nav-link navText" href="{% url 'memories' %}">Memories</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'documentWallet' %}">Document Wallet</a>
+                  <a class="nav-link navText" href="{% url 'documentWallet' %}">Document Wallet</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
+                  <a class="nav-link navText" href="{% url 'calendar' %}">Calendar</a>
                </li>
             </ul>
          </div>
@@ -54,6 +54,7 @@
                <div>
                   <p>{{entry.date_posted}}</p>
                </div>
+               <hr>
                <div>
                   <p>{{entry.titleEntry}}</p>
                </div>
