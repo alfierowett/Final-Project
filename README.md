@@ -16,6 +16,7 @@ This application is built to allow young adults and children in the care system 
  Install Python v.3 or higher,
  Pip should come preinstalled with Python,
  Pip install django, $ python -m pip install Django,
+ Pip install Pillow,
  Install Git,
  Git Clone project to chosen folder, $ git clone https://github.com/alfierowett/Final-Project.git
 

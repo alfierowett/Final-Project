@@ -12,6 +12,10 @@
       text-decoration: none;
       color: white !important;
       }
+      .categoryStyle{
+      text-decoration: none;
+      color: black;
+      }
    </style>
    <body>
       <!--display navigation bar with hamburger menu for mobile-->
@@ -57,11 +61,11 @@
                   </div>
                   <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                     <a href="{% url 'journal' %}">All</a>
+                     <a href="{% url 'journal' %}" class="categoryStyle">All</a>
                   </li>
                   {% for category in categories %}
                   <li class=" list-group-item">
-                     <a href="{% url 'journal' %}?category={{category.name}}">
+                     <a href="{% url 'journal' %}?category={{category.name}}" class="categoryStyle">
                      {{category.name}}
                      </a>
                   </li>
