@@ -14,7 +14,7 @@
   }
 </style>
    <body>
-      
+      <!--display navigation bar with hamburger menu for mobile-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
          <a class="navbar-brand m-1">Document Wallet</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +45,14 @@
          </div>
        </nav>
       <div class="container">
+         <!--Buttons to filter contents of document wallet by age-->
          <h4>Sort By...</h4>
          <a href="{% url 'AscWallet' %}" class="btn btn-dark btn-sml m-1">Oldest-Newest <img src="https://img.icons8.com/small/16/ffffff/collapse-arrow.png"/></a>
          <a href="{% url 'DescWallet' %}" class="btn btn-dark btn-sml m-1">Newest-Oldest <img src="https://img.icons8.com/small/16/ffffff/expand-arrow.png"/></a>
          <div class="row">
             <div class="col-md-3">
                <div>
+                  <!--Categories created by user to allow for further filtering-->
                   <div class="card-header">
                      Categories
                   </div>
@@ -75,7 +77,7 @@
             <div class="col-md-9">
                <div class="row">
 
-
+                  <!--Display all files within the accounts files DB column-->
                   {% for file in files %}
                   <div class="col-md-9">
                      <div class="my-2">
@@ -95,6 +97,7 @@
          </div>
       </div>
    </body>
+   <!--Bootstrap JS library for burger menu-->
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

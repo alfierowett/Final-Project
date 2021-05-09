@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+#Set URL paths within the Memories feature
 urlpatterns = [
     path('', views.memories, name='memories'),
     path('add/', views.newImage, name='new'),

@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+#Set URL paths within the Journal app
+
 urlpatterns = [
     path('', views.journal, name='journal'),
     path('addEntry/', views.newEntry, name='newEntry'),

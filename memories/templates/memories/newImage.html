@@ -13,13 +13,14 @@
         <div class="col-md-4">
           <a href="{% url 'memories' %}" class="btn btn-dark my-3">Go Back</a>
           <div class="card">
+            <!--Form sends post request to function to add attached photos to DB-->
             <form method="POST" action="" enctype="multipart/form-data">
               {% csrf_token %}
               <div class="form-group m-3">
                 <label>Description</label>
                 <input required type="text" name="descriptionImage" class="form-control" placeholder="Enter Description...">
               </div>
-
+              <!--User can create new category or select existing-->
               <div class="form-group m-3">
                 <label>Select a Category</label>
                 <select name="category" class="form-control" >
@@ -37,7 +38,7 @@
                 <input name="categoryNew" type="text" placeholder="Create a new category"
                     class="form-control">
             </div>
-
+            <!--Attach all images-->
               <div class="form-group m-3">
                 <label>Choose Images</label>
                 <input required type="file" name="images" multiple class="form-control-file">
@@ -52,7 +53,4 @@
     </div>
   
   </body>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

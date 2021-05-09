@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.decorators import login_required
 
+#View renders calendar page, displaying user specific elements and loading content from models
 @login_required
 def calendar(request):
     events = calendarEvent.objects.filter(owner=request.user)
@@ -24,6 +25,7 @@ def DescCal(request):
     
     return render(request, 'calendarAlerts/calendar.html', context)
 
+#function receives POST request to create a new event for the calendar
 @login_required
 def newEvent(request):
     if request.method == 'POST':
@@ -42,6 +44,7 @@ def newEvent(request):
     context = {'categories':categories}
     return render(request, 'calendarAlerts/calendar.html', context)
 
+#Private key passed for element to be deleted from database
 @login_required
 def deleteEvent(request, pk):
     event = calendarEvent.objects.get(id=pk)

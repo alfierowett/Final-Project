@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#List of all installed/built apps being used in the project
 INSTALLED_APPS = [
     'home.apps.HomepageConfig',
     'memories.apps.MemoriesConfig',
@@ -125,8 +125,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = 'images/'
+#Set X_FRAME option to except files with source of same origin as project
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+#Sets directory for all content to be stored on local device (creates a folder within django project to store in SQLlite DB)
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]

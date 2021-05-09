@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Category, Photo
 from django.contrib.auth.decorators import login_required
 
+#View renders Memories page, displaying user specific elements and loading content from models
 @login_required
 def memories(request):
     category = request.GET.get('category')
@@ -16,6 +17,7 @@ def memories(request):
     
     return render(request, 'memories/memories.html', context)
 
+#Filter photos by age of upload ascending
 @login_required
 def AscMemories(request):
     category = request.GET.get('category')
@@ -29,6 +31,7 @@ def AscMemories(request):
     
     return render(request, 'memories/memories.html', context)
 
+#Filter photos by age of upload descending
 @login_required
 def DescMemories(request):
     category = request.GET.get('category')
@@ -42,11 +45,13 @@ def DescMemories(request):
     
     return render(request, 'memories/memories.html', context)
 
+#Function to display selected photo with all related data
 @login_required
 def viewImage(request, pk):
     photo = Photo.objects.get(id=pk)
     return render(request, 'memories/viewImage.html', {'photo': photo})
 
+#function receives POST request to create a new photo/memory within users DB
 @login_required
 def newImage(request):
     categories = Category.objects.all()
@@ -76,6 +81,7 @@ def newImage(request):
     context = {'categories':categories}
     return render(request, 'memories/newImage.html', context)
 
+#Private key passed for chosen photo to be deleted from database
 @login_required
 def deleteImage(request, pk):
     image = Photo.objects.get(id=pk)

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+#Set URL paths within the calendar app
 urlpatterns = [
     path('', views.calendar, name='calendar'),
     path('addEvent/', views.newEvent, name='newEvent'),

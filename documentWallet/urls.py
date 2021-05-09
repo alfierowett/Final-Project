@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+#Set URL paths within the Document Wallet app
+
 urlpatterns = [
     path('', views.documentWallet, name='documentWallet'),
     path('add/', views.newDocument, name='newDocument'),
