@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 def journal(request):
     category = request.GET.get('category')
     if category == None:
-        entries = journalEntry.objects.all()
+        entries = journalEntry.objects.all().filter(owner=request.user)
     else:
-        entries = journalEntry.objects.filter(category__name=category)
+        entries = journalEntry.objects.filter(category__name=category).filter(owner=request.user)
 
 
     categories = Category.objects.all()

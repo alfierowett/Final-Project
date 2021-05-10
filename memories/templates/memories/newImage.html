@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>New Image</title>
   </head>
-  <body>
+  <body style="background-color: #051938;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-4">
-          <a href="{% url 'memories' %}" class="btn btn-dark my-3">Go Back</a>
+          <a href="{% url 'memories' %}" class="btn btn-primary my-3">Go Back</a>
           <div class="card">
             <!--Form sends post request to function to add attached photos to DB-->
             <form method="POST" action="" enctype="multipart/form-data">
@@ -44,7 +44,7 @@
                 <input required type="file" name="images" multiple class="form-control-file">
               </div>
 
-              <button type="submit" class="btn btn-dark m-3">Upload Images <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></button>
+              <button type="submit" class="btn btn-primary m-3">Upload Images <img src="https://img.icons8.com/ios-glyphs/30/ffffff/plus.png"/></button>
 
             </form>
           </div>
