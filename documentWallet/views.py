@@ -92,10 +92,12 @@ def newDocument(request):
 @login_required
 def deleteDocument(request, pk):
     file = Document.objects.get(id=pk)
-
-    file.delete()
-    return redirect('documentWallet')
-    return render(request, 'documentWallet/viewDocument.html')
+    if file.owner == request.user:
+        file.delete()
+        return redirect('documentWallet')
+        return render(request, 'documentWallet/viewDocument.html')
+    else:
+        raise PermissionDenied()
 
 #httpResponse to handle error of pdf files source being from the same origin as page
 @xframe_options_sameorigin

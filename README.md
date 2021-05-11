@@ -27,6 +27,7 @@ Run command: "python manage.py migrate",
 Run command: "python manage.py create superuser".
 And follow commands to create an account for testing,
 Run command: "python manage.py runserver"
+Test account details are: Username - Supervisor; Password - TestPassword1
 
 # Features:
  Login/Logout and accounts,
