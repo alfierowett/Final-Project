@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Category, Document
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 #View renders the document wallet, displaying user specific elements and loading content from models
 @login_required
@@ -14,7 +15,7 @@ def documentWallet(request):
         files = Document.objects.filter(category__name=category).filter(owner=request.user)
 
     
-    categories = Category.objects.all()
+    categories = Category.objects.filter(ownerCategory=request.user)
 
     context = {'categories': categories, 'files': files}
     return render(request, 'documentWallet/documentWallet.html', context)
@@ -23,7 +24,10 @@ def documentWallet(request):
 @login_required
 def viewDocument(request, pk):
     file = Document.objects.get(id=pk)
-    return render(request, 'documentWallet/viewDocument.html', {'file': file})
+    if file.owner == request.user:
+        return render(request, 'documentWallet/viewDocument.html', {'file': file})
+    else:
+        raise PermissionDenied()
 
 #Filter stored files by ascending order
 @login_required
@@ -66,7 +70,8 @@ def newDocument(request):
             category = Category.objects.get(id=data['category'])
         elif data['categoryNew'] != '':
             category, created = Category.objects.get_or_create(
-                name=data['categoryNew'])
+                name=data['categoryNew'],
+                ownerCategory=request.user)
         else:
             category = None
 

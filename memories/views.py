@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Category, Photo
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 #View renders Memories page, displaying user specific elements and loading content from models
 @login_required
@@ -12,7 +13,7 @@ def memories(request):
     else:
         photos = Photo.objects.filter(category__name=category).filter(owner=request.user)
 
-    categories = Category.objects.all()
+    categories = Category.objects.filter(ownerCategory=request.user)
     context = {'categories':categories, 'photos':photos}
     
     return render(request, 'memories/memories.html', context)
@@ -49,7 +50,11 @@ def DescMemories(request):
 @login_required
 def viewImage(request, pk):
     photo = Photo.objects.get(id=pk)
-    return render(request, 'memories/viewImage.html', {'photo': photo})
+    if photo.owner == request.user:
+        return render(request, 'memories/viewImage.html', {'photo': photo})
+    else:
+        raise PermissionDenied()
+    
 
 #function receives POST request to create a new photo/memory within users DB
 @login_required

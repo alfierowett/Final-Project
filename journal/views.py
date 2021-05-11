@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import journalEntry, Category
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 #View renders Journal Page, displaying user specific elements and loading content from models
 @login_required
@@ -49,8 +50,10 @@ def DescEntries(request):
 @login_required
 def viewEntry(request, pk):
     entry = journalEntry.objects.get(id=pk)
-    return render(request, 'journal/viewEntry.html', {'entry': entry})
-
+    if entry.owner == request.user:
+        return render(request, 'journal/viewEntry.html', {'entry': entry})
+    else:
+        raise PermissionDenied()
 
 #function receives POST request to create a new journal entry
 @login_required
