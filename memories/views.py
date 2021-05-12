@@ -68,8 +68,8 @@ def newImage(request):
             category = Category.objects.get(id=data['category'])
         elif data['categoryNew'] != '':
             category, created = Category.objects.get_or_create(
-            name=data['categoryNew'])
-            ownerCategory=request.user,
+                name=data['categoryNew'],
+                ownerCategory=request.user)
         else:
             category = None
 
@@ -90,8 +90,11 @@ def newImage(request):
 @login_required
 def deleteImage(request, pk):
     image = Photo.objects.get(id=pk)
-
-    image.delete()
-    return redirect('memories')
+    if image.owner == request.user:
+        image.delete()
+        return redirect('memories')
+    else:
+        raise PermissionDenied()
+        
 
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 #View renders calendar page, displaying user specific elements and loading content from models
 @login_required
@@ -48,8 +49,11 @@ def newEvent(request):
 @login_required
 def deleteEvent(request, pk):
     event = calendarEvent.objects.get(id=pk)
-
-    event.delete()
-    return redirect('calendar')
+    if event.owner == request.user:
+        event.delete()
+        return redirect('calendar')
+    else:
+        raise PermissionDenied()
+        
 
 

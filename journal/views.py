@@ -88,7 +88,9 @@ def newEntry(request):
 @login_required
 def deleteEntry(request, pk):
     entry = journalEntry.objects.get(id=pk)
-
-    entry.delete()
-    return redirect('journal')
-    return render(request, 'journal/journal.html')
+    if entry.owner == request.user:
+        entry.delete()
+        return redirect('journal')
+        return render(request, 'journal/journal.html')
+    else:
+        raise PermissionDenied()
