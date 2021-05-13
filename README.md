@@ -27,7 +27,11 @@ Run command: "python manage.py migrate",
 Run command: "python manage.py create superuser".
 And follow commands to create an account for testing,
 Run command: "python manage.py runserver"
-Test account details are: Username - Supervisor; Password - TestPassword1
+Test account details are: Username - "Supervisor"; Password - "TestPassword1"
+
+For testing of the hosted version please use Username "TestUser5", Passowrd "password5":
+
+http://alfier.pythonanywhere.com/accounts/login/
 
 # Features:
  Login/Logout and accounts,
